@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  icm-client:
+    image: icm-client
+    container_name: "icm-client"
+    build:
+      context: .
+      dockerfile: ./Dockerfile-dev
+    command: npm run dev
+    ports:
+      - "81:80"
+    networks:
+      - icm-network
+    volumes:
+      - .:/var/www/icm
+      - /var/www/icm/node_modules
+
+  icm:
+    image: nginx:latest
+    container_name: "icm"
+    ports:
+      - "80:80"
+    networks:
+      - icm-network
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+
+
+networks:
+  icm-network:
+    driver: bridge

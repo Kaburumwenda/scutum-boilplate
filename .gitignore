@@ -1,0 +1,29 @@
+
+node_modules
+/dist
+build/
+nuxt-dist
+bak.yaml
+Dockerfile-dev
+# local env files
+.env.local
+.env.*.local
+
+sw.*
+.nuxt
+
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
